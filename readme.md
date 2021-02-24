@@ -5,7 +5,8 @@ app created with ionic/angular
 Install ionic cli:
 - `npm install -g @ionic/cli`
 
-## Downnload repo
+## clone the reposiroy
+https://github.com/Hefziben/amasohn-store.git
 
 ## get modules
 `npm install` 
