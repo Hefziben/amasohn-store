@@ -5,16 +5,16 @@ app created with ionic/angular
 Install ionic cli:
 - `npm install -g @ionic/cli`
 
-## clone the reposiroy
+## clone the repository
 https://github.com/Hefziben/amasohn-store.git
 
-## get modules
-`npm install` 
+## install the dependencies
+- run `npm install` 
 
 ## Running the app 
-`ionic serve` 
+-run `ionic serve` 
 
-## Test
-`npm test` 
+## Testing
+-run `npm test` 
 
 
