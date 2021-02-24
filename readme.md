@@ -1,19 +1,20 @@
-#Torre test app
+# Torre test app
 app created with ionic/angular
 
 ## Setup 
 Install ionic cli:
 - `npm install -g @ionic/cli`
 
-## Downnload repo
+## clone the repository
+https://github.com/Hefziben/amasohn-store.git
 
-## get modules
-`npm install` 
+## install the dependencies
+- run `npm install` 
 
 ## Running the app 
-`ionic serve` 
+-run `ionic serve` 
 
-## Test
-`npm test` 
+## Testing
+-run `npm test` 
 
 
