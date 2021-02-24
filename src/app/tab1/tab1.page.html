@@ -1,17 +1,68 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+<ion-header class="ion-no-border" >
+  <ion-toolbar color="primary">
+
+      <div class="title" >
+        <ion-title >
+          {{language == 'EN'? 'Amasohn Store':'Tienda Amasohn'}}
+        </ion-title>
+      
+        <ion-select  interface="popover"  (ionChange)="select($event)" [(ngModel)]="country" [ngStyle]="{'background-image': 'url(assets/images/'+country+'.gif)','background-size':'35px 20px'}" > 
+          <ion-select-option *ngFor="let city of countries" [value]="city.name">{{city.name}}</ion-select-option>
+        </ion-select>
+        <ion-button class="btn-language" color="light" (click)="changeLanguage()" expand="block" fill="clear">
+          <ion-label>{{language}}</ion-label>
+        </ion-button>
+      </div>
   </ion-toolbar>
+  <ion-row class="background" >
+    <ion-searchbar placeholder="Search by name" inputmode="text" type="text" (ionChange)="onSearchChange($event)"></ion-searchbar>
+  </ion-row>
+  <ion-row class="background" style="justify-content: flex-end;">
+    <ion-col size="6">
+      <ion-item  lines="none">
+        <ion-label style="font-size:18px;">{{language == 'EN'? 'Products':'Productos'}}</ion-label>
+      </ion-item>
+    </ion-col>
+    <ion-col size="3">
+      <ion-item class="filters"  lines="none">
+        <ion-label >{{language == 'EN'? 'Sort':'Ordenar'}}</ion-label>
+        <ion-select (ionChange)="sort($event)" interface="popover" >
+          <ion-select-option *ngFor="let sort of sorts" [value]="sort.type">{{language == 'EN'?sort.label_EN:sort.label_ES}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-col>
+    <ion-col size="3">
+      <ion-item lines="none" class="filters">
+        <ion-label >{{language == 'EN'? 'Filter':'Filtrar'}}</ion-label>
+        <ion-select [(ngModel)]="category" (ionChange)="filterProductsByCategory()" interface="popover" >
+          <ion-select-option  *ngFor="let category of categories" [value]="category.name">{{language == 'EN'?category.label_EN:category.label_ES}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-col>
+
+      </ion-row>
+
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="background">
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+ <ion-row *ngIf="productFound" >
+  
+   <ion-col *ngFor="let product of displayProducts" size="6">
+     <ion-card class="product-div" (click)="productDetailComponent(product)" >
+      <img  [src]="product.image" alt="">
+      <ion-label class="product-title" >{{product.title}}</ion-label>      
+      <ion-label color="success" *ngIf="product.best_selling" >Best Seller</ion-label>
+      <ion-label color="primary" style="margin-bottom: 10px;" >{{product.price| currency:'USD'}}</ion-label>
+     </ion-card>
+ 
+   </ion-col>
+ </ion-row>
+ <ion-row *ngIf="!productFound" class="empty-list">
+  <ion-label>{{language== 'EN'?'Product not found':'Producto no encontrado'}}</ion-label>
+ </ion-row>
+
+
+
+  <!-- <app-explore-container name="Tab 1 page"></app-explore-container> -->
 </ion-content>
