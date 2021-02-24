@@ -12,7 +12,7 @@ https://github.com/Hefziben/amasohn-store.git
 - run `npm install` 
 
 ## Running the app 
--run `ionic serve` 
+-run `ionic serve` or `ng serve` 
 
 ## Testing
 -run `npm test` 
