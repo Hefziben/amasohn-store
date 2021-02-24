@@ -1,4 +1,4 @@
-#Torre test app
+# Torre test app
 app created with ionic/angular
 
 ## Setup 
