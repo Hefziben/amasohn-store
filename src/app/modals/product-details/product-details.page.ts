@@ -14,8 +14,6 @@ export class ProductDetailsPage implements OnInit {
   constructor(private viewCtrl:ModalController) { }
 
   ngOnInit() {
-    console.log(this.product);
-
   }
 
   close(){
